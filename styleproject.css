@@ -79,6 +79,13 @@ nav a:hover {
   padding-bottom: 0.5rem;
 }
 
+/* افکت hover برای سکشن‌ها */
+.section:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(0, 119, 204, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
 /* مهارت‌ها */
 .skill {
   margin-bottom: 1rem;

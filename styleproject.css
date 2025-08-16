@@ -17,7 +17,7 @@ body {
 /* هدر شیشه‌ای */
 header {
   position: sticky;
-  background:#00c6ff;
+  background: rgba(0, 198, 255, 0.6);
   top: 0;
   backdrop-filter: blur(10px);
   display: flex;
@@ -180,6 +180,7 @@ footer {
     padding: 1.5rem;
   }
 }
+
 
 
 

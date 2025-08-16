@@ -1,4 +1,4 @@
-/* style.css */
+/* فونت و ریست اولیه */
 @import url('https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap');
 
 * {
@@ -10,46 +10,51 @@
 
 body {
   direction: rtl;
-  background-color: #f9fbfc;
+  background: linear-gradient(to bottom, #eef6fb, #f9fbfc);
   color: #2c3e50;
   scroll-behavior: smooth;
 }
 
+/* هدر شیشه‌ای */
 header {
-  background: linear-gradient(90deg, #0077cc, #005fa3);
-  color: white;
-  padding: 1.2rem 2rem;
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 10;
+  padding: 1rem 2rem;
+  z-index: 100;
   box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-  animation: slide_down 1.2s ease-in-out;
 }
 
-header h1 {
-  font-size: 1.8rem;
+header .logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #0077cc, #005fa3);
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
 nav ul {
   list-style: none;
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 nav a {
   text-decoration: none;
-  color: white;
-  font-weight: bold;
+  color: #333;
+  font-weight: 500;
   transition: color 0.3s ease;
 }
 
 nav a:hover {
-  color: #ffd700;
+  color: #0077cc;
 }
 
+/* سکشن‌ها */
 .section {
   background: white;
   margin: 2rem auto;
@@ -57,26 +62,48 @@ nav a:hover {
   border-radius: 12px;
   max-width: 900px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
-  transition: transform 0.3s;
-  animation: fadein 1s;
+  transform: translateY(40px);
+  opacity: 0;
+  transition: all 0.8s ease;
 }
 
-.section:hover {
-  transform: translateY(-5px);
+.section.show {
+  transform: translateY(0);
+  opacity: 1;
 }
 
-h2 {
+.section h2 {
   color: #0077cc;
   margin-bottom: 1rem;
   border-bottom: 2px solid #e0e0e0;
   padding-bottom: 0.5rem;
 }
 
-ul {
-  padding-right: 1.2rem;
-  line-height: 1.8;
+/* مهارت‌ها */
+.skill {
+  margin-bottom: 1rem;
 }
 
+.skill span {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.progress {
+  background: #e0e0e0;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 10px;
+}
+
+.progress div {
+  height: 100%;
+  background: linear-gradient(90deg, #0077cc, #00c6ff);
+  transition: width 1s ease;
+}
+
+/* فرم تماس شیشه‌ای */
 form {
   display: flex;
   flex-direction: column;
@@ -85,14 +112,16 @@ form {
 
 input, textarea {
   padding: 0.8rem;
-  border-radius: 6px;
-  border: 1px solid #ccc;
+  border-radius: 10px;
+  border: none;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: inset 0 1px 4px rgba(0,0,0,0.1);
   font-size: 1rem;
-  transition: border-color 0.3s;
+  transition: box-shadow 0.3s ease;
 }
 
 input:focus, textarea:focus {
-  border-color: #0077cc;
+  box-shadow: 0 0 5px rgba(0, 119, 204, 0.6);
   outline: none;
 }
 
@@ -102,21 +131,22 @@ textarea {
 }
 
 button {
-  background: #0077cc;
+  background: linear-gradient(90deg, #0077cc, #005fa3);
   color: white;
   padding: 0.75rem 1.5rem;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 1rem;
   cursor: pointer;
-  align-self: flex-start;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
-  background: #005fa3;
+  background: linear-gradient(90deg, #005fa3, #004080);
+  transform: translateY(-2px);
 }
 
+/* فوتر */
 footer {
   background: #333;
   color: white;
@@ -125,26 +155,7 @@ footer {
   margin-top: 3rem;
 }
 
-@keyframes slide_down {
-  from {
-    transform: translateY(-80px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
+/* واکنش‌گرایی */
 @media (max-width: 768px) {
   nav ul {
     flex-direction: column;

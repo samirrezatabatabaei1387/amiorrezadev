@@ -34,6 +34,7 @@ header .logo {
   background: linear-gradient(90deg, #0077cc, #005fa3);
   -webkit-background-clip: text;
   color: white;
+  margin: 0;
 }
 
 nav ul {
@@ -179,6 +180,7 @@ footer {
     padding: 1.5rem;
   }
 }
+
 
 
 

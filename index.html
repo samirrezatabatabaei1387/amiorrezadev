@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="رزومه و مهارت‌های سید امیررضا طباطبایی - توسعه‌دهنده وب با تمرکز بر طراحی رابط کاربری و تجربه کاربری.">
 <meta name="keywords" content="سید امیررضا طباطبایی, طراحی سایت, توسعه دهنده وب, HTML, CSS, جاوااسکریپت, رزومه">
 <meta name="author" content="سید امیررضا طباطبایی">
 <link rel="icon" type="image/png" href="favicon.png">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>سایت شخصی من</title>
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styleproject.css" />
@@ -56,12 +55,15 @@
   <!-- فرم تماس -->
   <section class="section" id="contact">
     <h2>تماس با من</h2>
-    <form action="test.php" method="post">
+    <form id="contactForm">
       <input type="text" name="name" placeholder="نام شما" required />
       <input type="email" name="email" placeholder="ایمیل شما" required />
       <textarea name="message" placeholder="پیام شما" required></textarea>
       <button type="submit">ارسال پیام</button>
     </form>
+    <p id="successMsg" style="color:green; margin-top:10px; display:none;">
+      پیام شما با موفقیت ذخیره شد!
+    </p>
   </section>
 
   <!-- فوتر -->
@@ -69,8 +71,9 @@
     <p>&copy; 2025 تمامی حقوق محفوظ است | طراحی توسط سید امیررضا طباطبایی</p>
   </footer>
 
-  <!-- اسکریپت انیمیشن اسکرول -->
+  <!-- اسکریپت -->
   <script>
+    // انیمیشن اسکرول
     const sections = document.querySelectorAll('.section');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -79,9 +82,29 @@
         }
       });
     }, { threshold: 0.2 });
-
     sections.forEach(sec => observer.observe(sec));
+
+    // ذخیره فرم در localStorage
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault(); // جلوگیری از رفرش صفحه
+
+      const name = this.name.value;
+      const email = this.email.value;
+      const message = this.message.value;
+
+      // ذخیره در localStorage (می‌تونیم تاریخ هم اضافه کنیم)
+      const contactData = {
+        name: name,
+        email: email,
+        message: message,
+        date: new Date().toLocaleString('fa-IR')
+      };
+      localStorage.setItem('contactFormData', JSON.stringify(contactData));
+
+      // پیام موفقیت
+      document.getElementById('successMsg').style.display = 'block';
+      this.reset();
+    });
   </script>
 </body>
 </html>
-

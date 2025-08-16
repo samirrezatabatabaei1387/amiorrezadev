@@ -10,7 +10,6 @@
 
 body {
   direction: rtl;
-  background: linear-gradient(to bottom, #eef6fb, #f9fbfc);
   color: #2c3e50;
   scroll-behavior: smooth;
 }
@@ -33,7 +32,7 @@ header .logo {
   font-weight: bold;
   background: linear-gradient(90deg, #0077cc, #005fa3);
   -webkit-background-clip: text;
-  color: transparent;
+  color: white;
 }
 
 nav ul {
@@ -44,7 +43,7 @@ nav ul {
 
 nav a {
   text-decoration: none;
-  color: #333;
+  color: #ffffff;
   font-weight: 500;
   transition: color 0.3s ease;
 }
@@ -101,7 +100,7 @@ nav a:hover {
   border-radius: 20px;
   overflow: hidden;
   height: 10px;
-}
+} 
 
 .progress div {
   height: 100%;
@@ -178,4 +177,3 @@ footer {
     padding: 1.5rem;
   }
 }
-
